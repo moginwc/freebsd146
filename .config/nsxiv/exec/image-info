@@ -42,9 +42,9 @@
 
     # デジカメの機種名を取得
     if ("$model" == "-") then
-        set camera_model = "機種名:不明"
+        set camera_model = "カメラ:不明"
     else
-        set camera_model = "機種名:$model"
+        set camera_model = "カメラ:$model"
     endif
 
     # 結果を標準出力に表示
