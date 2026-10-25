@@ -6,7 +6,7 @@ conky.config = {
     update_interval = 5.0,
     own_window = true,
     own_window_type = 'normal',    -- normal desktop
-    own_window_transparent = true, -- 透過する
+    own_window_colour = '#00000000', -- 透過する
     alignment = 'middle_right',    -- 表示位置
     maximum_width = 256,
     default_color = 'white',
@@ -22,15 +22,15 @@ conky.text = [[
 
 # システム表示(OS名,リリース名,アーキテクチャ名,ホスト名,稼働時間)
 ${color white}SYSTEM ${hr 2}
-OS: ${exec uname -o} ${kernel} ${exec uname -m}
+OS: ${exec uname -o} ${exec freebsd-version} ${exec uname -m}
 Hostname: $nodename
 Uptime: $uptime
 
 # CPU表示(平均負荷,CPU使用率,周波数,温度,プロセス)
 ${color white}CPU ${hr 2}
 Load: ${loadavg} ${alignr}${cpu}%
-Freq: ${freq_g}GHz ${alignr}${exec sysctl -a | grep temperature | awk '{print $2}'}
-${cpugraph cpu1 40,256 3d78ba 3d78ba} 
+Freq: ${freq_g 1}GHz ${alignr}${exec sysctl -a | grep temperature | awk '{print $2}'}
+${cpugraph cpu1 40,256 3d78ba 3d78ba}
 NAME               PID    CPU%   MEM%
 ${top name 1}${top pid 1} ${top cpu 1} ${top mem 1}
 ${top name 2}${top pid 2} ${top cpu 2} ${top mem 2}
