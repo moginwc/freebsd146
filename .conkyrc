@@ -30,7 +30,7 @@ Uptime: $uptime
 ${color white}CPU ${hr 2}
 Load: ${loadavg} ${alignr}${cpu}%
 Freq: ${freq_g 1}GHz ${alignr}${exec sysctl -a | grep temperature | awk '{print $2}'}
-${cpugraph cpu1 40,256 3d78ba 3d78ba}
+${cpugraph 40,256 3d78ba 3d78ba}
 NAME               PID    CPU%   MEM%
 ${top name 1}${top pid 1} ${top cpu 1} ${top mem 1}
 ${top name 2}${top pid 2} ${top cpu 2} ${top mem 2}
