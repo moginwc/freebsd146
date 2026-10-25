@@ -1,0 +1,68 @@
+# chroot用のディレクトリ、システムファイルを構築する
+su
+mkdir -p /home/chroot
+cd /home/chroot
+fetch https://download.freebsd.org/ftp/releases/amd64/14.5-RELEASE/base.txz
+tar -xvpf base.txz
+
+# ネットワーク、タイムゾーンを設定する
+cp /etc/resolv.conf /home/chroot/etc
+cp /etc/localtime /home/chroot/etc
+
+# chroot環境に移る
+chroot /home/chroot /bin/sh
+
+# ネットワーク、タイムゾーン、OSアップデート、pkg環境を構築する [chroot内で実施]
+freebsd-update fetch
+freebsd-update install
+pkg
+
+# システム、コンパイル環境に必要なプログラムをインストールする [chroot内で実施]
+pkg install -y perl5 sudo
+
+# sudoの設定を行う
+visudo
+
+%wheel ALL=(ALL:ALL) ALL
+
+# ユーザーを設定する [chroot内で実施]
+adduser
+
+# ユーザーの変数を設定する(.cshrc) [chroot内で実施]
+vi /home/pcuser/.cshrc
+
+set prompt = "[chroot] %N@%m:%~ %# "
+
+# ユーザーの変数を設定する(.login) [chroot内で実施]
+setenv LANG ja_JP.UTF-8
+setenv LC_ALL ja_JP.UTF-8
+
+# chroot環境から抜ける [chroot内で実施]
+exit
+
+# suから抜ける
+exit
+
+# chroot環境利用の事前設定とchroot環境に移る
+sudo mount -t devfs devfs /home/chroot/dev
+sudo chroot /home/chroot su - pcuser
+
+# muttのソースのダウンロードとビルド [chroot内で実施]
+fetch http://ftp.mutt.org/pub/mutt/mutt-2.4.2.tar.gz
+tar xf mutt-2.4.2.tar.gz
+cd mutt-2.4.2
+./configure
+make
+sudo make install
+
+# インストール日時の確認と、その時刻以降に更新されたファイルを見る
+ls -l /usr/local/bin/mutt
+find /usr -type f -newermt '2026-08-26 12:00:00'
+
+# chroot環境を終了し、chroot内の/devをアンマウントする
+exit
+sudo umount /home/chroot/dev
+
+# chroot環境を完全消去する
+sudo chflags -R noschg /home/chroot
+sudo rm -rf /home/chroot

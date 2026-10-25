@@ -1,0 +1,24 @@
+# FreeBSD 14.5 の設定ファイル
+
+FreeBSD 14.5 インストール＆活用ガイド 2026-10-23 第13版 に対応
+https://moginwc.sakura.ne.jp/FreeBSD145InstallGuide.pdf
+
+インストールをお急ぎの方は、下記を実行してください。
+
+ステップ１．FreeBSD 14.5 インストール＆活用ガイド 2026-10-23 第13版 の
+　　　　　　22〜77ページ（sudoを設定するまで）を実行する。
+ステップ２．# pkg install -y git を実行する。
+ステップ３，# exit でログアウトする。
+ステップ４．pcuser でログインする。
+ステップ５．% git clone https://github.com/moginwc/freebsd145 を実行する。
+ステップ６．% cd freebsd145
+ステップ７．% tcsh ./install.tcsh
+            1. カスタムインストーラーの画面が表示されますので、必要項目にチェックを入れてください。
+               (ほとんどはデフォルトのままで良いと思いますが、日本語キーボードをを使う場合は、
+                use_jp_keyboardをチェックしてください)
+            2. sudoのパスワード入力、およびインストーラー最後に
+               ファイル共有smbのパスワード入力があります)
+ステップ８．% sudo shutdown -r now
+ステップ９．158ページ以降を参照。
+
+[EOF]

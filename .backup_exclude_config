@@ -1,0 +1,5 @@
+# 除外ディレクトリ・ファイル
+/home/pcuser/.cache
+*.core
+._*
+.DS_Store
