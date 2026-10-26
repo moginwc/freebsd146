@@ -5,7 +5,7 @@
 #-----------------------------------------
 
 # リポジトリ名
-    set ver = "freebsd145"
+    set ver = "freebsd146"
 
 # インストール選択画面の表示
     set selected = `dialog \
@@ -23,7 +23,7 @@
 #----------
 
 # umask
-    umask 27
+    umask 77
 
 # sudo認証
     sudo -v || exit 1
@@ -54,13 +54,16 @@
         sudo sed -i '' 's/ em0 / re0 /g' /etc/pf.conf
     endif
 
-# vimエディターをインストールする (3.初期設定 vimエディタ)
-    sudo pkg install -y -q vim-x11
-    cp ./.vimrc ~
+# パーミッション初期設定 (3.初期設定 パーミッション)
+	chmod 600 ~/.cshrc ~/.login ~/.login_conf ~/.mail_aliases ~/.mailrc ~/.profile ~/.shrc
 
 # シェルスクリプト初期設定 (3.初期設定 シェル)
     cp ./.cshrc ~
     cp ./.login ~
+
+# vimエディターをインストールする (3.初期設定 vimエディタ)
+    sudo pkg install -y -q vim-x11
+    cp ./.vimrc ~
 
 # X Window System をインストールする (3.初期設定 ウインドウ)
     sudo pkg install -y -q xorg
