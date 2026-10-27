@@ -52,6 +52,12 @@
                 "URL": "https://radiko.jp/",
                 "Placement": "toolbar"
             }
-        ]
+        ],
+        "Preferences": {
+            "layout.spellcheckDefault": {
+                "Value": 0,
+                "Status": "locked"
+            }
+        }
     }
 }
