@@ -57,7 +57,11 @@
             "layout.spellcheckDefault": {
                 "Value": 0,
                 "Status": "locked"
-            }
+            },
+            "browser.sessionstore.resume_from_crash": {
+                "Value": false,        
+                "Status": "locked"
+            } 
         }
     }
 }
