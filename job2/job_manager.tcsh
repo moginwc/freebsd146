@@ -17,7 +17,7 @@ while (1)
 
         if (-e "$dir/state/slot${slot}_running.stat") then
             @ busy++
-		endif
+        endif
 
         @ slot++
     end
