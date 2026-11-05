@@ -1,0 +1,27 @@
+/* XPM */
+static char *XPM_X[] = {
+/* width height num_colors chars_per_pixel */
+"16 16 4 2",
+". c None",        /* 透明背景 */
+"B c #343434",     /* 輪郭 */
+"O c #E99A43",     /* オレンジ */
+"W c #FFF0D8",     /* 白 */
+
+/* pixels */
+". . . . B B . . . . . . B B . . ",
+". . . B O O B . . . . B O O B . ",
+". . B O O O O B . . B O O O O B ",
+". B O O O O O O B B O O O O O O ",
+"B O O O O O O O O O O O O O O O ",
+"B O O W W W O O O O O W W W O O ",
+"B O O W W W O O O O O W W W O O ",
+"B O O O O O O O O O O O O O O O ",
+"B O O O B B B O O O O B B B O O ",
+"B O O O B B B O O O O B B B O O ",
+"B O O O O O O B B O O O O O O O ",
+"B O O O O O O B B O O O O O O O ",
+"B O O O O O O O O O O O O O O O ",
+". B O O O O O O O O O O O O O B ",
+". . B O O O O O O O O O O O B . ",
+". . . B B B B B B B B B B B . . "
+};
