@@ -172,6 +172,7 @@ AddToMenu Programs    "プログラム"                      Title
 +                     "カレンダ..."                     Exec xterm -geometry 70x38 -T カレンダ -e tcsh -c "cal -y; stty -icanon; dd bs=1 count=1"
 +                     ""                                Nop
 +                     "時計..."                         Exec xclock -name "時計"
+##+                     "時計..."               　        Exec python3.12 $HOME/bin/aclock.py
 +                     "電卓..."                         Exec xcalc
 +                     "パフォーマンスメータ..."         Exec xterm -e top
 +                     ""                                Nop
