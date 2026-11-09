@@ -1,0 +1,40 @@
+.TH ZFS-TIPS 7 "2026年11月" "個人メモ" "ユーザーガイド"
+.SH 【名前】
+zfs-tips \- よく使うzfs操作関連ツールの例集
+.SH 【使用例】
+.TP
+スナップショットを取得する：
+.EX
+% sudo zfs snapshot zroot/home/pcuser@20260826_1200
+.EE
+.TP
+取得したスナップショットを参照する：
+.EX
+% cd /home/pcuser/.zfs/snapshot/20260826_1200
+% ls
+.EE
+.TP
+スナップショットの一覧を表示する：
+.EX
+% zfs list -t snapshot
+.EE
+.TP
+スナップショットの詳細（作成状況）を表示する：
+.EX
+% zfs get creation zroot/home/pcuser@20260826_1200
+.EE
+.TP
+既存のファイルとスナップショットとのファイルを比較する：
+.EX
+% sudo zfs diff zroot/home/pcuser@20260826_1200
+.EE
+.TP
+ロールバックする：
+.EX
+% sudo zfs rollback zroot/home/pcuser@20260826_1200
+.EE
+.TP
+スナップショットを削除する：
+.EX
+% sudo zfs destroy -R zroot/home/pcuser@20260826_1200
+.EE
