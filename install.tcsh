@@ -266,6 +266,7 @@
     mkdir -p ~/Downloads
     mkdir -p ~/.config/chromium/Default
     cp -r ./.config/chromium/Default ~/.config/chromium/
+    sed -i '' '/^[^#].*ウェブブラウザ\.\.\./s/^/#/' ~/.fvwm2rc
 
 # 8-8.画面スライドショーしたい
     sudo pkg install -y -q feh
@@ -385,6 +386,11 @@
     sudo pkg install -y -q py312-tkinter py312-pillow
     mkdir -p ~/bin
     cp ./bin/pixel_loupe.py ~/bin
+    sed -i '' '/^[^#].*Exec lupe /s/^/#/' ~/.fvwm2rc
+
+# アナログ時計アプリを作成したい
+     cp ./bin/aclock.py ~/bin
+     sed -i '' '/^[^#].*Exec xclock /s/^/#/' ~/.fvwm2rc
 
 # 15-17.UTF-8対応日本語表示可能な16進ダンプツールを作成したい
     cp ./bin/jhexdump.* ~/bin
