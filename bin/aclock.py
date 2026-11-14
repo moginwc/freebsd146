@@ -286,8 +286,8 @@ def update_clock():
 
     draw_clock()
 
-    # 次の0.1秒境界までの時間を計算
-    delay = 100 - (now.microsecond // 1000 % 100)
+    # 次の1秒境界までの時間を計算
+    delay = 1000 - (now.microsecond // 1000)
 
     root.after(delay, update_clock)
 
