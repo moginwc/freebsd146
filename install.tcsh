@@ -8,15 +8,15 @@
     set ver = "freebsd146"
 
 # インストール選択画面の表示
-    set selected = `dialog \
+    set selected = `( bsddialog \
         --title "FreeBSD Custom Installer" \
-        --stdout \
         --checklist "Select your options:" 14 76 6 \
         use_amdgpu "Use AMD GPU driver (Default: Intel GPU driver)" off \
         use_re0 "LAN interface: re0 (Default: em0)" off \
         use_jp_keyboard "Keyboard layout: 106 JP (Default: 101 US)" off \
         enable_numlock "Enable NumLock for X (Default: Off)" off \
-        use_volume_keys "Use volume keys (Default: ALT+CTRL+↑,↓,M)" off`
+        use_volume_keys "Use volume keys (Default: ALT+CTRL+↑,↓,M)" off \
+        > /dev/tty ) >& /dev/stdout`
 
 #----------
 # 基本設定
