@@ -396,6 +396,10 @@
     cp ./bin/jhexdump.* ~/bin
     chmod +x ~/bin/jhexdump.pl
 
+# 対話形式の画面を構築したい(bsddialog)
+    cp ./bin/rdp_connect.tcsh ~/bin
+    chmod +x ~/bin/rdp_connect.tcsh
+
 # おまけ. 文字コード表
     cp -r ./html ~
 
