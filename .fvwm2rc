@@ -185,7 +185,7 @@ AddToMenu Programs    "プログラム"                      Title
 +                     ""                                Nop
 +                     "付箋..."                         Exec xpad -s
 ##+                     ""                                Nop
-##+                     "リモートデスクトップ接続..."     Exec xfreerdp /u:username /p:password /size:800x600 /sound /clipboard /cert-ignore /v:192.168.1.16
+##+                     "リモートデスクトップ接続..."     Exec $HOME/bin/rdp_connect.tcsh
 ##+                     "VNCビューア..."                  Exec vncviewer
 ##+                      "Telnet (シフトJIS接続)..."       Exec mlterm --km=Shift_JIS --title=Telnet\ \(シフトJIS接続\) -e telnet -8
 +                     ""                                Nop
